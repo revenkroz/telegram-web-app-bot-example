@@ -1,4 +1,4 @@
-# Telegram Web Apps for Bots test
+# Telegram Web Apps for Bots Example
 
 Example HTML-file that contains a basic interaction with Telegram Web Apps API. Based on [Attach Bot](https://t.me/asmico_attach_bot).
 
