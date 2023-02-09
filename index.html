@@ -182,7 +182,7 @@
 
     <section>
         <h1 id="greeting"></h1>
-        <input id="text_input" type="text" placeholder="Enter text here...">
+        <input onsubmit="handleText" id="text_input" type="text" placeholder="Enter text here...">
         <div id="buttons">
             <button onclick="webviewExpand();">Expand Webview</button>
             <small>(The window goes fullscreen)</small>
@@ -220,6 +220,11 @@
             for (let i = 0; i < repeat; i++) {
                 Telegram.WebApp.sendData("salom");
             }
+        }
+        const inputText = document.querySelector("#text_input").value;
+
+        function handleText() {
+            Telegram.WebApp.sendData(inputText)
         }
     </script>
 </body>
