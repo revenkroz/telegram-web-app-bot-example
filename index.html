@@ -181,7 +181,6 @@
             border-radius: 4px;
             padding: 8px;
             margin: 7px 0;
-            word-break: break-all;
             word-break: break-word;
             white-space: pre-wrap;
             text-align: left;
@@ -406,6 +405,16 @@
         },
         close() {
             Telegram.WebApp.close();
+        },
+        toggleMainButton(el) {
+            const mainButton = Telegram.WebApp.MainButton;
+            if (mainButton.isVisible) {
+                mainButton.hide();
+                el.innerHTML = 'Show Main Button';
+            } else {
+                mainButton.show();
+                el.innerHTML = 'Hide Main Button';
+            }
         },
 
         // actions
