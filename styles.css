@@ -1,0 +1,68 @@
+#container {
+    position: relative;
+    width: 300px;
+    height: 200px;  /* Увеличиваем высоту контейнера */
+    margin: auto;
+}
+
+#box {
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    top: 0;  /* Расположим бокс вверху контейнера */
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#values {
+    position: relative;
+    left: 0;
+    white-space: nowrap;
+}
+
+.value {
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: lightgray;
+    border-right: 1px solid black;
+}
+
+#pointer {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid red;
+    position: absolute;
+    top: 50px;  /* Расположим треугольник ниже бокса */
+    left: 145px;
+}
+
+#buttonAndResult {
+    position: absolute;
+    width: 100%;
+    top: 80px;  /* Расположим кнопку и результат еще ниже */
+    text-align: center;
+}
+
+#spinBtn {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+}
