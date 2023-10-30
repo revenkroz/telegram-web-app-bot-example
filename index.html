@@ -607,6 +607,21 @@
                 }
             });
         },
+        isVersionAtLeast(version) {
+            return Telegram.WebApp.isVersionAtLeast(version);
+        },
+        //version to string Example: '6.9'
+        doesntSupport(version) {
+            // console.log("version: " + version);
+            // console.log("realVersion: " + this.version());
+            // console.log("doesntSupport: " + this.isVersionAtLeast(version));
+            if (!this.isVersionAtLeast(version)) {
+                Telegram.WebApp.showAlert('This feature is not supported in this version of Telegram', function () {
+                    Telegram.WebApp.close();
+                });
+                throw new Error('This feature is not supported in this version of Telegram');
+            }
+        },
         showPopup() {
             Telegram.WebApp.showPopup({
                 title  : 'Popup title',
