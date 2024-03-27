@@ -336,90 +336,90 @@
 <body class="" style="visibility: hidden;">
 
 <section id="top_sect" class="second">
-    <button id="main_btn" onclick="DemoApp.sendMessage('');">Send «Hello, World!»</button>
-    <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">Send «Hello, World!» with inline webview button</button>
-    <button id="data_btn" onclick="DemoApp.sendTime(true);">Send current time to bot (x10)</button>
-    <button onclick="DemoApp.expand();">Expand Webview</button>
-    <button onclick="DemoApp.toggleMainButton(this);">Hide Main Button</button>
-    <input type="text" placeholder="Input text in regular input..." id="regular_field"/>
-    <div
-            class="input"
-            contenteditable="true"
-            data-placeholder="Input text in contenteditable field..."
-            id="text_field"
-    ></div>
-    <div id="peer_wrap" style="display:none">
-        <img id="peer_photo" class="chat_img" src="">
-        <span id="peer_name"></span>
-    </div>
-    <div class="sect_row">Header: <select id="header_color_sel">
-        <option value="bg_color" selected>bg_color</option>
-        <option value="secondary_bg_color">secondary_bg_color</option>
-    </select></div>
-    <div class="sect_row">Background: <input type="color" id="bg_color_input"/> <select id="bg_color_sel">
-        <option value="bg_color" selected>bg_color</option>
-        <option value="secondary_bg_color">secondary_bg_color</option>
-        <option value="custom" id="bg_color_val">custom...</option>
-    </select></div>
+<!--    <button id="main_btn" onclick="DemoApp.sendMessage('');">Send «Hello, World!»</button>-->
+<!--    <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">Send «Hello, World!» with inline webview button</button>-->
+    <button id="data_btn" onclick="DemoApp.sendTime(true);">Technology</button>
+
+
+
+<!--    <div-->
+<!--            class="input"-->
+<!--            contenteditable="true"-->
+<!--            data-placeholder="Input text in contenteditable field..."-->
+<!--            id="text_field"-->
+<!--    ></div>-->
+<!--    <div id="peer_wrap" style="display:none">-->
+<!--        <img id="peer_photo" class="chat_img" src="">-->
+<!--        <span id="peer_name"></span>-->
+<!--    </div>-->
+<!--    <div class="sect_row">Header: <select id="header_color_sel">-->
+<!--        <option value="bg_color" selected>bg_color</option>-->
+<!--        <option value="secondary_bg_color">secondary_bg_color</option>-->
+<!--    </select></div>-->
+<!--    <div class="sect_row">Background: <input type="color" id="bg_color_input"/> <select id="bg_color_sel">-->
+<!--        <option value="bg_color" selected>bg_color</option>-->
+<!--        <option value="secondary_bg_color">secondary_bg_color</option>-->
+<!--        <option value="custom" id="bg_color_val">custom...</option>-->
+<!--    </select></div>-->
 </section>
 <section>
     <div id="btn_status" class="hint" style="display: none;">
     </div>
-    <p>Test links:</p>
-    <ul>
-        <li><a id="regular_link" href="">Regular link #2</a> (opens inside webview)</li>
-        <li><a href="https://telegram.org/" target="_blank">target="_blank" link</a> (opens outside webview)</li>
-        <li><a href="javascript:window.open('https://telegram.org/');">window.open() link</a> (opens outside webview)</li>
-        <li><a href="https://t.me/like">LikeBot t.me link</a> (opens inside Telegram app)</li>
-        <li><a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/vote');">web_app_open_tg_link()</a> (opens inside Telegram app)</li>
-        <li><a href="javascript:Telegram.WebApp.openLink('https://google.com/');">web_app_open_link()</a> (opens outside webview)</li>
-        <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>
-        <li><a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">web_app_open_link({try_instant_view:true})</a> (opens IV inside Telegram app)</li>
-    </ul>
-    <p>Test permissions:</p>
-    <ul>
-        <li><a href="javascript:;" onclick="return DemoApp.requestLocation(this);">Request Location</a> <span></span></li>
-        <li><a href="javascript:;" onclick="return DemoApp.requestVideo(this);">Request Video</a> <span></span></li>
-        <li><a href="javascript:;" onclick="return DemoApp.requestAudio(this);">Request Audio</a> <span></span></li>
-        <li><a href="javascript:;" onclick="return DemoApp.requestAudioVideo(this);">Request Audio+Video</a> <span></span></li>
-        <li><a href="javascript:;" onclick="return DemoApp.testClipboard(this);" id="clipboard_test">Read from clipboard</a> <span></span></li>
-    </ul>
-    <p>Test alerts:</p>
-    <div class="columns">
-        <ul>
-            <li><a href="javascript:;" onclick="alert('Hello!');">alert</a></li>
-            <li><a href="javascript:;" onclick="confirm('Are you sure?');">confirm</a></li>
-            <li><a href="javascript:;" onclick="prompt('How old are you?');">prompt</a></li>
-        </ul>
-        <ul>
-            <li><a href="javascript:;" onclick="DemoApp.showAlert('Hello!');">showAlert</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.showConfirm('Are you sure?');">showConfirm</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.requestWriteAccess();">requestWriteAccess</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.requestContact();">requestContact</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.showPopup();">showPopup</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup();">showScanQrPopup</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup(true);">showScanQrPopup (links only)</a></li>
-        </ul>
-    </div>
-    <p>Haptics:</p>
-    <ul>
-        <li>Impact: <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('heavy');">heavy</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('light');">light</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('medium');">medium</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('rigid');">rigid</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');">soft</a><br><br></li>
-        <li>Notification: <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');">error</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');">success</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');">warning</a><br><br></li>
-        <li>Selection: <a href="javascript:Telegram.WebApp.HapticFeedback.selectionChanged();">changed</a><br><br></li>
-    </ul>
-    <pre><code id="webview_data"></code></pre>
+<!--    <p>Test links:</p>-->
+<!--    <ul>-->
+<!--        <li><a id="regular_link" href="">Regular link #2</a> (opens inside webview)</li>-->
+<!--        <li><a href="https://telegram.org/" target="_blank">target="_blank" link</a> (opens outside webview)</li>-->
+<!--        <li><a href="javascript:window.open('https://telegram.org/');">window.open() link</a> (opens outside webview)</li>-->
+<!--        <li><a href="https://t.me/like">LikeBot t.me link</a> (opens inside Telegram app)</li>-->
+<!--        <li><a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/vote');">web_app_open_tg_link()</a> (opens inside Telegram app)</li>-->
+<!--        <li><a href="javascript:Telegram.WebApp.openLink('https://google.com/');">web_app_open_link()</a> (opens outside webview)</li>-->
+<!--        <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>-->
+<!--        <li><a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">web_app_open_link({try_instant_view:true})</a> (opens IV inside Telegram app)</li>-->
+<!--    </ul>-->
+<!--    <p>Test permissions:</p>-->
+<!--    <ul>-->
+<!--        <li><a href="javascript:;" onclick="return DemoApp.requestLocation(this);">Request Location</a> <span></span></li>-->
+<!--        <li><a href="javascript:;" onclick="return DemoApp.requestVideo(this);">Request Video</a> <span></span></li>-->
+<!--        <li><a href="javascript:;" onclick="return DemoApp.requestAudio(this);">Request Audio</a> <span></span></li>-->
+<!--        <li><a href="javascript:;" onclick="return DemoApp.requestAudioVideo(this);">Request Audio+Video</a> <span></span></li>-->
+<!--        <li><a href="javascript:;" onclick="return DemoApp.testClipboard(this);" id="clipboard_test">Read from clipboard</a> <span></span></li>-->
+<!--    </ul>-->
+<!--    <p>Test alerts:</p>-->
+<!--    <div class="columns">-->
+<!--        <ul>-->
+<!--            <li><a href="javascript:;" onclick="alert('Hello!');">alert</a></li>-->
+<!--            <li><a href="javascript:;" onclick="confirm('Are you sure?');">confirm</a></li>-->
+<!--            <li><a href="javascript:;" onclick="prompt('How old are you?');">prompt</a></li>-->
+<!--        </ul>-->
+<!--        <ul>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.showAlert('Hello!');">showAlert</a></li>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.showConfirm('Are you sure?');">showConfirm</a></li>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.requestWriteAccess();">requestWriteAccess</a></li>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.requestContact();">requestContact</a></li>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.showPopup();">showPopup</a></li>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup();">showScanQrPopup</a></li>-->
+<!--            <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup(true);">showScanQrPopup (links only)</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    <p>Haptics:</p>-->
+<!--    <ul>-->
+<!--        <li>Impact: <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('heavy');">heavy</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('light');">light</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('medium');">medium</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('rigid');">rigid</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');">soft</a><br><br></li>-->
+<!--        <li>Notification: <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');">error</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');">success</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');">warning</a><br><br></li>-->
+<!--        <li>Selection: <a href="javascript:Telegram.WebApp.HapticFeedback.selectionChanged();">changed</a><br><br></li>-->
+<!--    </ul>-->
+    <pre style="display: none;"><code id="webview_data" style="display: none;"></code></pre>
     <div class="hint">
-        Data passed to webview.
+<!--        Data passed to webview.-->
         <span id="webview_data_status" class="status_need">Checking hash...</span>
     </div>
-    <pre><code id="theme_data"></code></pre>
-    <div class="hint">
-        Theme params
-    </div>
-    <div class="hint">
-        Version: <span id="ver"></span>,
-        platform: <span id="platform"></span>
-    </div>
+<!--    <pre><code id="theme_data"></code></pre>-->
+<!--    <div class="hint">-->
+<!--        Theme params-->
+<!--    </div>-->
+<!--    <div class="hint">-->
+<!--        Version: <span id="ver"></span>,-->
+<!--        platform: <span id="platform"></span>-->
+<!--    </div>-->
 </section>
 <div class="viewport-border"></div>
 <div class="viewport-stable_border"></div>
@@ -560,35 +560,12 @@
                 });
             }
         },
-        sendText(spam) {
-            const textField = document.querySelector('#text_field');
-            const text      = textField.value;
-            if (!text.length) {
-                return textField.focus();
-            }
-            if (byteLength(text) > 4096) {
-                return alert('Text is too long');
-            }
-
-            const repeat = spam ? 10 : 1;
-            for (let i = 0; i < repeat; i++) {
-                Telegram.WebApp.sendData(text);
-            }
-        },
         sendTime(spam) {
-            const repeat = spam ? 10 : 1;
-            for (let i = 0; i < repeat; i++) {
-                Telegram.WebApp.sendData(new Date().toString());
-            }
+               Telegram.WebApp.sendData(new Date().toString());
         },
 
         // Alerts
-        showAlert(message) {
-            Telegram.WebApp.showAlert(message);
-        },
-        showConfirm(message) {
-            Telegram.WebApp.showConfirm(message);
-        },
+
         requestWriteAccess() {
             Telegram.WebApp.requestWriteAccess(function (result) {
                 if (result) {
@@ -768,35 +745,6 @@
                 ' | is_expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false'));
         }
     };
-
-    function byteLength(str) {
-        if (window.Blob) {
-            try {
-                return new Blob([str]).size;
-            } catch (e) {
-            }
-        }
-
-        let s = str.length;
-        for (let i = str.length - 1; i >= 0; i--) {
-            const code = str.charCodeAt(i);
-            if (code > 0x7f && code <= 0x7ff) {
-                s++;
-            } else if (code > 0x7ff && code <= 0xffff) {
-                s += 2;
-            }
-
-            if (code >= 0xDC00 && code <= 0xDFFF) {
-                i--;
-            }
-        }
-        return s;
-    }
-
-    function round(val, d) {
-        const k = Math.pow(10, d || 0);
-        return Math.round(val * k) / k;
-    }
 </script>
 
 <script type="application/javascript">
@@ -808,26 +756,13 @@
         document.getElementById('theme_data').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
     });
 
-    if (DemoApp.initDataUnsafe.query_id) {
-        document.getElementById('main_btn').style.display = 'block';
-    }
-    document.getElementById('with_webview_btn').style.display = !!DemoApp.initDataUnsafe.query_id && !DemoApp.initDataUnsafe.receiver ? 'block' : 'none';
+
     document.getElementById('webview_data').innerHTML         = JSON.stringify(DemoApp.initDataUnsafe, null, 2);
 
-    document.getElementById('theme_data').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
-    document.getElementById('regular_link').setAttribute('href', document.getElementById('regular_link').getAttribute('href') + location.hash);
-    document.getElementById('text_field').focus();
-    document.getElementById('regular_field').addEventListener('input', function (e) {
-        const val = this.value.toLowerCase();
-        if (val.indexOf('progress') >= 0) {
-            Telegram.WebApp.MainButton.showProgress();
-        } else {
-            Telegram.WebApp.MainButton.hideProgress();
-        }
-    });
 
-    document.getElementById('ver').innerHTML      = Telegram.WebApp.version;
-    document.getElementById('platform').innerHTML = Telegram.WebApp.platform;
+
+<!--    document.getElementById('ver').innerHTML      = Telegram.WebApp.version;-->
+<!--    document.getElementById('platform').innerHTML = Telegram.WebApp.platform;-->
 
     if (DemoApp.initDataUnsafe.receiver) {
         document.getElementById('peer_wrap').style.display = 'block';
