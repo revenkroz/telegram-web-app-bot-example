@@ -1,12 +1,12 @@
 # Telegram Web Apps for Bots Example
 
-Example HTML-file that contains a basic interaction with Telegram Web Apps API. Based on [Attach Bot](https://t.me/asmico_attach_bot).
+Example HTML-file that contains a plain-JS interaction with Telegram Web Apps API. 
+Live demo: [Attach Bot](https://t.me/asmico_attach_bot).
 
 ## Links
 * Official docs: https://core.telegram.org/bots/webapps
 * Live Demo Bot: [Attach Bot](https://t.me/asmico_attach_bot)
 * Telegram Promo Bot: [Durger King](https://t.me/durgerkingbot)
-* My Telegram WebApp to track movies and TV shows: [EPSCAPE Bot](https://t.me/EpscapeBot)
 
 ## Quick setup
 
