@@ -44,63 +44,30 @@
 </head>
 <body>
   <div class="container">
-    <a href="https://imgbb.com/"><img src="https://i.ibb.co/ckXN7f4/Logo-2.png" alt="Logo-2" border="0" /></a>
+    <img src="https://i.ibb.co/ckXN7f4/Logo-2.png" alt="$COLLIE Logo" class="image" />
     <h1>$COLLIE</h1>
-    import { useCallback, ReactElement } from 'react'
-import { useAdsgram } from "./hooks/useAdsgram.ts";
-
-
-export function ShowAdButton() {
-  const onReward = useCallback(() => {
-    alert('Reward');
-  }, []);
-  const onError = useCallback((result) => {
-    alert(JSON.stringify(result, null, 4));
-  }, []);
-
-  /**
-   * insert your-block-id
-   */
-  const showAd = useAdsgram({ blockId: "your-block-id", onReward, onError });
-
-  return (
-    <button onClick={showAd}>Show Ad</button>
-  )
-}
+    <button class="donate-button" onclick="handleDonateClick()">Click to donate liquidity FREE</button>
   </div>
 
   <script>
-    import { useCallback, useEffect, useRef } from 'react';
-
-export function useAdsgram({ blockId, onReward, onError }) {
-  const AdControllerRef = useRef(undefined);
-
-  useEffect(() => {
-    AdControllerRef.current = window.Adsgram?.init({ 4781 });
-  }, [4781]);
-
-  return useCallback(async () => {
-    if (AdControllerRef.current) {
-      AdControllerRef.current
-        .show()
-        .then(() => {
-          // user watch ad till the end
-          onReward();
-        })
-        .catch((result) => {
-          // user get error during playing ad or skip ad
-          onError?.(result);
-        });
-    } else {
-      onError?.({
-        error: true,
-        done: false,
-        state: 'load',
-        description: 'Adsgram script not loaded',
-      });
+    function handleDonateClick() {
+      const blockId = 4781; // Insert the ADSGRAM block ID here
+      const adController = window.Adsgram?.init({ blockId });
+      if (adController) {
+        adController.show()
+          .then(() => {
+            // After the user watches the ad, redirect to the donation page
+            window.open('https://t.me/CollieonINJbot/CollieonINJAPP', '_blank');
+          })
+          .catch((error) => {
+            console.error("Error displaying ad:", error);
+            alert("An error occurred while showing the ad. Please try again.");
+          });
+      } else {
+        alert("Adsgram script not loaded. Please refresh the page.");
+      }
     }
-  }, [onError, onReward]);
-}
   </script>
 </body>
 </html>
+
