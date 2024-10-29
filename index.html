@@ -50,24 +50,37 @@
   </div>
 
   <script>
-    const blockId = '4781'; // replace with your ADSGRAM block ID
+    import { useCallback, useEffect, useRef } from 'react';
 
-    function handleDonateClick() {
-      const adController = window.Adsgram?.init({ 4781 });
-      if (adController) {
-        adController.show()
-          .then(() => {
-            // User watched the ad till the end, redirect to donation link
-            window.open('https://t.me/CollieonINJbot/CollieonINJAPP', '_blank');
-          })
-          .catch((error) => {
-            console.error("Error loading ad:", error);
-            alert("Error showing the ad. Please try again.");
-          });
-      } else {
-        alert("Adsgram not loaded. Please refresh the page.");
-      }
+export function useAdsgram({ blockId, onReward, onError }) {
+  const AdControllerRef = useRef(undefined);
+
+  useEffect(() => {
+    AdControllerRef.current = window.Adsgram?.init({ 4781 });
+  }, [4781]);
+
+  return useCallback(async () => {
+    if (AdControllerRef.current) {
+      AdControllerRef.current
+        .show()
+        .then(() => {
+          // user watch ad till the end
+          onReward();
+        })
+        .catch((result) => {
+          // user get error during playing ad or skip ad
+          onError?.(result);
+        });
+    } else {
+      onError?.({
+        error: true,
+        done: false,
+        state: 'load',
+        description: 'Adsgram script not loaded',
+      });
     }
+  }, [onError, onReward]);
+}
   </script>
 </body>
 </html>
