@@ -1,17 +1,56 @@
 <head>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+<!DOCTYPE html>
 <html lang="en">
-      <script>
-        function setThemeClass() {
-            document.documentElement.className = Telegram.WebApp.colorScheme;
-        }
-
-        Telegram.WebApp.onEvent('themeChanged', setThemeClass);
-        setThemeClass();
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$COLLIE Bot</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5dc; /* Fundo bege */
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      color: #0000ff; /* Texto azul */
+      font-size: 2rem;
+    }
+    .donate-button {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .donate-button:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
+<body>
+  <div class="container">
+    <h1>$COLLIE</h1>
+    <button class="donate-button" onclick="handleDonateClick()">Click for donate liquidity</button>
+  </div>
 
-<body class="" style="visibility: hidden;">
+  <script>
+    function handleDonateClick() {
+      // Ação do botão que direciona para um link de doação ou abre o Telegram com o bot
+      window.open('https://t.me/seu_bot_aqui', '_blank');
+    }
+  </script>
 
 const AdController = window.Adsgram.init({ blockId: 4781 })
 
