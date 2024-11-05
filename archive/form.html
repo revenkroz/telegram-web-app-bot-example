@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        #formContainer {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        #formContainer h2 {
+            margin-top: 0;
+        }
+        input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div id="formContainer">
+    <h2>Submit Information</h2>
+    <form id="simpleForm">
+        <input type="text" id="textInput" placeholder="Enter your text here" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="outputMessage" style="color: green; display: none;">Form submitted successfully!</p>
+</div>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    // Initialize Telegram WebApp
+    Telegram.WebApp.ready();
+
+    // Function to make API request to backend
+    function apiRequest(data, onCallback) {
+        fetch('https://your-backend-url.com/api/submit', {
+            method: 'POST',
+            body: JSON.stringify({ text: data }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => response.json())
+          .then(result => onCallback(result))
+          .catch(error => onCallback({ error: 'Server error: ' + error.message }));
+    }
+
+    // Handle form submission
+    document.getElementById('simpleForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent traditional form submission
+
+        // Capture the text from the input field
+        const userInput = document.getElementById('textInput').value;
+
+        // Send data to the backend
+        apiRequest(userInput, function(response) {
+            if (response.status === "success") {
+                document.getElementById('outputMessage').style.display = 'block';
+                document.getElementById('textInput').value = ''; // Clear the input field
+            } else {
+                alert("Error: " + (response.error || "Unknown error"));
+            }
+        });
+    });
+
+    // Optional: Set background and header color of the WebApp
+    Telegram.WebApp.setBackgroundColor('#f4f4f9');
+    Telegram.WebApp.setHeaderColor('secondary_bg_color');
+</script>
+
+</body>
+</html>
